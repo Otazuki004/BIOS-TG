@@ -1,5 +1,6 @@
 from vars import *
 from pyrogram import *
 
-
-print ("BIOS-TG")
+os = None
+print ("setup process starting...")
+try:
