@@ -78,15 +78,11 @@ if OS_COUNT == 0:
         print(e)
        
 elif OS_COUNT == 1:
-    try:
-        from Os import name as OSNAME
-    except Exception as e:
-        print("ERROR", e)
-
+    from Os import name as NB
     try:
         @bot.on_message(filters.command("boot") & filters.user(OWNER_ID))
         def bootos(client, message):
-            bot.send_message(OWNER_ID, f"**Starting {OSNAME}**")
+            bot.send_message(OWNER_ID, f"**Starting {NB}**")
             
             with open(f"{DIR}Os.txt", "r") as kk:
                 CODE = kk.read()
