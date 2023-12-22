@@ -166,7 +166,7 @@ Use `/unboot` Delete A Booted Os file**
                      
 @bot.on_message(filters.command("version") & filters.user(OWNER_ID))
 def biosversion (bot, message):
-    message.reply_text(f"Your Current Bios Version IS {version}")
+    message.reply_text(f"**Your Current Bios Version is {version}**")
 
 def shutdown():
     try:
@@ -179,11 +179,11 @@ def shutdown():
         None
 @bot.on_message(filters.command("shutdown") & filters.user(OWNER_ID))
 def stop (bot, message):
-    message.reply_text("Shuting Down...")
+    message.reply_text("**Shuting Down...**")
     shutdown()
 @bot.on_message(filters.command("restart") & filters.user(OWNER_ID))
 def restartbot (bot, message):
-    message.reply_text("Restarting...")
+    message.reply_text("**Restarting...**")
     restart_program()
     
 bot.run()
