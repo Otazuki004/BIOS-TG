@@ -23,13 +23,13 @@ TOKEN = "6910428877:AAFIFbleAgAtf42tNQuty-gRbl4ybWIIPCQ"
 
 try:
     with open(f"{DIR}token.txt", "w") as f:
-        f.write(TOKEN)
+        str(f.write(TOKEN))
     with open(f"{DIR}id.txt", "w") as g:
-        g.write(a_id)
+        str(g.write(a_id))
     with open(f"{DIR}hash.txt", "w") as h:
-        h.write(a_hash)
+        str(h.write(a_hash))
     with open(f"{DIR}own.txt", "w") as j:
-        j.write(OWNER_ID)
+        str(j.write(OWNER_ID))
 except Exception as e:
     print("Error", e)
 
