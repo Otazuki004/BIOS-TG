@@ -13,6 +13,14 @@ except Exception as l:
     print("ERROR", l)
 
 version = 0.51
+bestos = """
+**
+⚡ Top Best OS ✅
+
+
+
+**
+"""
 a_id = "10187126" #Api ID
 a_hash = "ff197c0d23d7fe54c89b44ed092c1752"
 #Token For Boot Loader ↓
