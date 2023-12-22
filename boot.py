@@ -67,7 +67,7 @@ if OS_COUNT == 0:
                         OS_COUNT = int(g.read())
                     print("Done ✅")
                     await message.reply_text("**Please Backup Your OS File because If You Get Error Your Os file Will be Deleted So Backup It ✅ **")
-                    exit()
+                    restart_program()
                 except Exception as e:
                     print("Error", e)
                     await message.reply_text(f"Error, `{e}`")
@@ -77,15 +77,18 @@ if OS_COUNT == 0:
        
 elif OS_COUNT == 1:
     try:
-        
-        bot.send_message(OWNER_ID, "Starting OS")
-        with open(f"{DIR}Os.txt", "r") as kk:
-            CODE = kk.read()
-        exec(CODE)
-        bot.send_message(chat_id=OWNER_ID, text="** Your OS Has been Stopped **")
-        print("Exited...")
-        exit()
-        sys.exit()
+        @bot.on_message(filters.command("boot") & filters.user(OWNER_ID))
+        def bootos(client, message):
+            bot.send_message(OWNER_ID, "Starting OS")
+            
+            with open(f"{DIR}Os.txt", "r") as kk:
+                CODE = kk.read()
+            
+            exec(CODE)
+            bot.send_message(chat_id=OWNER_ID, text="** Your OS Has been Stopped **")
+            print("Exited...")
+            exit()
+            sys.exit()
     except FileNotFoundError:
         print("Error, Os.txt Not Found Trying to Solve It")
         os.remove(f"{DIR}OS_COUNT.txt")
