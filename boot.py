@@ -144,7 +144,7 @@ if OS_COUNT == 1:
                 g.write("0")
             bot.send_message(message.chat.id, "**Successfully Unbooted Your Os ✅**")
             print("OS Unbooted")
-            exit()
+            restart_program()
         except Exception as e:
             print("Somthing Went Wrong While Unbooting OS")
             print(e)
