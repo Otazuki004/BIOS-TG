@@ -21,7 +21,7 @@ BOT_TOKEN = "6545010659:AAFNji-VogCaD64CmwtCPOSiX3glPKQ3iH4"
 OWNER_ID = 5965055071
 TOKEN = "6910428877:AAFIFbleAgAtf42tNQuty-gRbl4ybWIIPCQ"
 
-bot = Client("Boot Loader", bot_token=BOT_TOKEN, api_id=a_id, api_hash=a_hash)
+bot = Client("Bios", bot_token=BOT_TOKEN, api_id=a_id, api_hash=a_hash)
 
 try:
     try:
@@ -33,6 +33,7 @@ try:
         time.sleep(5)
         os.remove(f"{DIR}OS_COUNT.txt")
         print("Success✅, Please Restart The Boot Loader")
+        exit()
 except Exception as y:
     with open(f"{DIR}OS_COUNT.txt", "w") as f:
         f.write("0")
@@ -75,6 +76,7 @@ if OS_COUNT == 0:
     except Exception as e:
         print("OOPS Something went Wrong During First Boot")
         print(e)
+        exit()
        
 elif OS_COUNT == 1:
     try:
@@ -151,5 +153,20 @@ if OS_COUNT == 1:
             exit()
 else:
     None
+@bot.on_messsage(filters.command(settings) & filters.user(OWNER.ID))
+def settings (bot, message):
+    bot.send_message(message.chat.id, """
+    ** 📚 Help 📚**
 
+    Use `/version` To Get Bios Version
+    Use `/shutdown` For Force Shutdown
+    Use `/restart` For Force Restart
+    Use `/bestos` Get Approved and Best Os
+    Use `/stopos` For Stop The Os
+    """
+                     
+
+    
+    
+    
 bot.run()
