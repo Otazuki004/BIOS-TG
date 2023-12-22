@@ -13,7 +13,7 @@ except Exception as l:
     print("ERROR", l)
 
 try:
-    from os import name as OSNAME
+    from Os import name as OSNAME
 except Exception as e:
     print("ERROR", e)
 
