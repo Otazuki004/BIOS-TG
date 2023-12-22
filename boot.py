@@ -20,7 +20,7 @@ OWNER_ID = 5965055071
 
 B_TOK = " " #Token For Main Bot
 
-bot = Client("Boot Loader", bot_token=BOT_TOKEN, api_id=API_ID, api_hash=API_HASH)
+bot = Client("Boot Loader", bot_token=BOT_TOKEN, api_id=a_id, api_hash=a_hash)
 bot.start()
 try:
     try:
