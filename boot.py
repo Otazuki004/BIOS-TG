@@ -21,7 +21,7 @@ OWNER_ID = 5965055071
 B_TOK = " " #Token For Main Bot
 
 bot = Client("Boot Loader", bot_token=BOT_TOKEN, api_id=a_id, api_hash=a_hash)
-bot.start()
+
 try:
     try:
         with open(f"{DIR}OS_COUNT.txt", "r") as f:
@@ -111,3 +111,4 @@ else:
             exit()
     except Exception as e:
         print("ERROR:", e)
+bot.run()
