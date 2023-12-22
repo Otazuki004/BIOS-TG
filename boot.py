@@ -37,6 +37,7 @@ except Exception as y:
         f.write("0")
     with open(f"{DIR}OS_COUNT.txt", "r") as g:
         OS_COUNT = int(g.read())
+    
 
 def restart_program():
     python = sys.executable
@@ -66,6 +67,7 @@ if OS_COUNT == 0:
                         OS_COUNT = int(g.read())
                     print("Done ✅")
                     await message.reply_text("**Please Backup Your OS File because If You Get Error Your Os file Will be Deleted So Backup It ✅ **")
+                    exit()
                 except Exception as e:
                     print("Error", e)
                     await message.reply_text(f"Error, `{e}`")
