@@ -21,7 +21,7 @@ OWNER_ID = 5965055071
 B_TOK = " " #Token For Main Bot
 
 bot = Client("Boot Loader", bot_token=BOT_TOKEN, api_id=a_id, api_hash=a_hash)
-bot.start()
+
 try:
     try:
         with open(f"{DIR}OS_COUNT.txt", "r") as f:
@@ -76,15 +76,24 @@ if OS_COUNT == 0:
         print(e)
        
 elif OS_COUNT == 1:
-    bot.send_message(OWNER_ID, "Starting OS")
-    with open(f"{DIR}Os.txt", "r") as kk:
+    try:
+        
+        bot.send_message(OWNER_ID, "Starting OS")
+        with open(f"{DIR}Os.txt", "r") as kk:
             CODE = kk.read()
-    exec(CODE)
-
-    bot.send_message(chat_id=OWNER_ID, text="** Your OS Has been Stopped **")
-    print("Exited...")
-    exit()
-    sys.exit()
+        exec(CODE)
+        bot.send_message(chat_id=OWNER_ID, text="** Your OS Has been Stopped **")
+        print("Exited...")
+        exit()
+        sys.exit()
+    except FileNotFoundError:
+        print("Error, Os.txt Not Found Trying to Solve It")
+        os.remove(f"{DIR}OS_COUNT.txt")
+        print("Success, Please Restart The Program")
+        exit()
+    except Exception as e:
+        print("ERROR, ", e)
+        exit()
     
 
 else:
@@ -113,4 +122,4 @@ else:
             exit()
     except Exception as e:
         print("ERROR:", e)
-bot.stop()
+bot.run()
