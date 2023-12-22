@@ -19,7 +19,7 @@ a_hash = "ff197c0d23d7fe54c89b44ed092c1752"
 #Token For Boot Loader ↓
 BOT_TOKEN = "6545010659:AAFNji-VogCaD64CmwtCPOSiX3glPKQ3iH4"
 OWNER_ID = 5965055071
-TOKEN = ""
+TOKEN = "6910428877:AAFIFbleAgAtf42tNQuty-gRbl4ybWIIPCQ"
 
 try:
     with open(f"{DIR}token.txt", "w") as f:
