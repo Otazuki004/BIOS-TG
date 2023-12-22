@@ -12,6 +12,11 @@ try:
 except Exception as l:
     print("ERROR", l)
 
+try:
+    from os import name as OSNAME
+except Exception as e:
+    print("ERROR", e)
+
 a_id = 10187126 #Api ID
 a_hash = "ff197c0d23d7fe54c89b44ed092c1752"
 #Token For Boot Loader ↓
@@ -79,7 +84,7 @@ elif OS_COUNT == 1:
     try:
         @bot.on_message(filters.command("boot") & filters.user(OWNER_ID))
         def bootos(client, message):
-            bot.send_message(OWNER_ID, "Starting OS")
+            bot.send_message(OWNER_ID, f"**Starting {OSNAME}**")
             
             with open(f"{DIR}Os.txt", "r") as kk:
                 CODE = kk.read()
