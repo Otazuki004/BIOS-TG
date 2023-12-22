@@ -153,7 +153,7 @@ if OS_COUNT == 1:
             exit()
 else:
     None
-@bot.on_message(filters.command("help") & filters.user(OWNER.ID))
+@bot.on_message(filters.command("help") & filters.user(OWNER_ID))
 def settings (bot, message):
     bot.send_message(message.chat.id, """
     ** 📚 Help 📚**
