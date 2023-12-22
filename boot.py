@@ -163,7 +163,7 @@ def settings (bot, message):
     Use `/restart` For Force Restart
     Use `/bestos` Get Approved and Best Os
     Use `/stopos` For Stop The Os
-    """
+    """)
                      
 
     
