@@ -27,7 +27,7 @@ try:
     with open(f"{DIR}id.txt", "w") as g:
         str(g.write(a_id))
     with open(f"{DIR}hash.txt", "w") as h:
-        str(h.write(a_hash))
+        h.write(a_hash)
     with open(f"{DIR}own.txt", "w") as j:
         str(j.write(OWNER_ID))
 except Exception as e:
@@ -89,7 +89,11 @@ if OS_COUNT == 0:
         print(e)
        
 elif OS_COUNT == 1:
-    from Os import name as NB
+    try:
+        with open(f"{DIR}name.txt", "r") as l:
+            NB = str(l.read())
+    except Exception as e:
+        print("ERROR", e)
     try:
         @bot.on_message(filters.command("boot") & filters.user(OWNER_ID))
         def bootos(client, message):
