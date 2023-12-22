@@ -59,7 +59,7 @@ if OS_COUNT == 0:
                 await message.reply_text("Saving.....")
                 try:
                     
-                    os_file = f"{DIR}Os.txt"  # Replace with the actual absolute path
+                    os_file = f"{DIR}Os.py"  # Replace with the actual absolute path
                     file_info = message.document
                     await message.download(file_name=os_file)
                     await message.reply_text("OS file Saved✅")
@@ -84,7 +84,7 @@ elif OS_COUNT == 1:
         def bootos(client, message):
             bot.send_message(OWNER_ID, f"**Starting {NB}**")
             
-            with open(f"{DIR}Os.txt", "r") as kk:
+            with open(f"{DIR}Os.py", "r") as kk:
                 CODE = kk.read()
             
             exec(CODE)
