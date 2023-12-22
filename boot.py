@@ -170,10 +170,6 @@ def biosversion (bot, message):
 
 def shutdown():
     try:
-        sys.exit()
-    except Exception:
-        None
-    try:
         exit()
     except Exception:
         None
