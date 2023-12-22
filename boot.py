@@ -21,16 +21,6 @@ BOT_TOKEN = "6545010659:AAFNji-VogCaD64CmwtCPOSiX3glPKQ3iH4"
 OWNER_ID = 5965055071
 TOKEN = "6910428877:AAFIFbleAgAtf42tNQuty-gRbl4ybWIIPCQ"
 
-try:
-    with open(f"{DIR}token.txt", "w") as f:
-        str(f.write(TOKEN))
-    with open(f"{DIR}id.txt", "w") as g:
-        str(g.write(a_id))
-    with open(f"{DIR}hash.txt", "w") as h:
-        str(h.write(a_hash))
-except Exception as e:
-    print("Error", e)
-
 bot = Client("Boot Loader", bot_token=BOT_TOKEN, api_id=a_id, api_hash=a_hash)
 
 try:
