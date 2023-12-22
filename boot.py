@@ -12,8 +12,7 @@ try:
 except Exception as l:
     print("ERROR", l)
 
-
-
+version = 0.51
 a_id = "10187126" #Api ID
 a_hash = "ff197c0d23d7fe54c89b44ed092c1752"
 #Token For Boot Loader ↓
@@ -154,19 +153,42 @@ if OS_COUNT == 1:
 else:
     None
 @bot.on_message(filters.command("help") & filters.user(OWNER_ID))
-def settings (bot, message):
+def help (bot, message):
     bot.send_message(message.chat.id, """
     ** 📚 Help 📚**
 
-    Use `/version` To Get Bios Version
-    Use `/shutdown` For Force Shutdown
-    Use `/restart` For Force Restart
-    Use `/bestos` Get Approved and Best Os
-    Use `/stopos` For Stop The Os
+   Use `/version` To Get Bios Version
+   Use `/shutdown` For Force Shutdown
+   Use `/restart` For Force Restart
+   Use `/bestos` Get Approved and Best Os
+   Use `/boot` Boot a Os
+   Use `/unboot` Delete A Booted Os file
     """)
                      
+@bot.on_message(filters.command("version") & filters.user(OWNER_ID))
+def biosversion (bot, message):
+    message.reply_text(f"Your Current Bios Version IS {version}")
 
-    
-    
+def shutdown():
+    try:
+        sys.exit()
+    except Exception:
+        None
+    try:
+        exit()
+    except Exception:
+        None
+    try:
+        bot.stop()
+    except Exception:
+        None
+@bot.on_message(filters.command("shutdown") & filters.user(OWNER_ID))
+def stop (bot, message):
+    message.reply_text("Shuting Down...")
+    shutdown()
+@bot.on_message(filters.command("restart") & filters.user(OWNER_ID))
+def restartbot (bot, message):
+    message.reply_text("Restarting...")
+    restart_program()
     
 bot.run()
