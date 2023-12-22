@@ -149,3 +149,5 @@ if OS_COUNT == 1:
             print("Somthing Went Wrong While Unbooting OS")
             print(e)
             exit()
+else:
+    None
