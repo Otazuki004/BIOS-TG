@@ -141,14 +141,11 @@ if OS_COUNT == 1:
         try:
             os.remove(f"{DIR}Os.txt")
             with open(f"{DIR}OS_COUNT.txt", "w") as g:
-                OS_COUNT = int(g.write(0))
-            bot.send_message(message.chat.id, "Successfully Unbooted Your Os")
+                g.write("0")
+            bot.send_message(message.chat.id, "**Successfully Unbooted Your Os ✅**")
             print("OS Unbooted")
             exit()
         except Exception as e:
             print("Somthing Went Wrong While Unbooting OS")
             print(e)
             exit()
-else:
-    print(None)
-bot.run()
