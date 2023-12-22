@@ -151,3 +151,5 @@ if OS_COUNT == 1:
             exit()
 else:
     None
+
+bot.run()
