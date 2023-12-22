@@ -12,10 +12,7 @@ try:
 except Exception as l:
     print("ERROR", l)
 
-try:
-    from Os import name as OSNAME
-except Exception as e:
-    print("ERROR", e)
+
 
 a_id = 10187126 #Api ID
 a_hash = "ff197c0d23d7fe54c89b44ed092c1752"
@@ -81,6 +78,11 @@ if OS_COUNT == 0:
         print(e)
        
 elif OS_COUNT == 1:
+    try:
+        from Os import name as OSNAME
+    except Exception as e:
+        print("ERROR", e)
+
     try:
         @bot.on_message(filters.command("boot") & filters.user(OWNER_ID))
         def bootos(client, message):
