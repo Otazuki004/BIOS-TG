@@ -155,13 +155,13 @@ else:
 @bot.on_message(filters.command("help") & filters.user(OWNER_ID))
 def help (bot, message):
     bot.send_message(message.chat.id, """
-    ** 📚 Help 📚**
+**📚 Help 📚
 
-   Use `/version` To Get Bios Version
-   Use `/shutdown` For Force Shutdown
-   Use `/restart` For Force Restart
-   Use `/boot` Boot a Os
-   Use `/unboot` Delete A Booted Os file
+Use `/version` To Get Bios Version
+Use `/shutdown` For Force Shutdown
+Use `/restart` For Force Restart
+Use `/boot` Boot a Os
+Use `/unboot` Delete A Booted Os file**
     """)
                      
 @bot.on_message(filters.command("version") & filters.user(OWNER_ID))
