@@ -29,7 +29,7 @@ try:
     with open(f"{DIR}hash.txt", "w") as h:
         str(h.write(a_hash))
     with open(f"{DIR}own.txt", "w") as j:
-        int(j.write(OWNER_ID))
+        str(j.write(OWNER_ID))
 except Exception as e:
     print("Error", e)
 
