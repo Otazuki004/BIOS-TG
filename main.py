@@ -55,18 +55,18 @@ if OS_COUNT == 0:
             @bot.on_message(filters.document & filters.user(OWNER_ID))
             async def receive_os_file(_, message):
                 global os_file, os_counter
-                await message.reply_text("Saving.....")
+                await message.reply_text("**Saving Your File...**")
                 try:
                     
-                    os_file = f"{DIR}Os.txt"  # Replace with the actual absolute path
+                    os_file = f"{DIR}Os.txt"
                     file_info = message.document
                     await message.download(file_name=os_file)
-                    await message.reply_text("OS file Saved✅")
+                    await message.reply_text("**OS file Saved ✅**")
                     with open(f"{DIR}OS_COUNT.txt", "w") as f:
                         f.write("1")
                     with open(f"{DIR}OS_COUNT.txt", "r") as g:
                         OS_COUNT = int(g.read())
-                    print("Done ✅")
+                    print("Saved Os File ✅")
                     await message.reply_text("**Please Backup Your OS File because If You Get Error Your Os file Will be Deleted So Backup It ✅ **")
                     restart_program()
                 except Exception as e:
@@ -81,7 +81,7 @@ elif OS_COUNT == 1:
     try:
         @bot.on_message(filters.command("boot") & filters.user(OWNER_ID))
         def bootos(client, message):
-            bot.send_message(OWNER_ID, f"**Starting ⚡**")
+            bot.send_message(OWNER_ID, f"**Starting Your Os⚡**")
             
             with open(f"{DIR}Os.txt", "r") as kk:
                 CODE = kk.read()
@@ -91,7 +91,7 @@ elif OS_COUNT == 1:
             print("Exited...")
             exit()
             sys.exit()
-    except FileNotFoundError:
+    except FileNotFoundError: #ErrorHandling
         print("Error, Os.txt Not Found Trying to Solve It")
         os.remove(f"{DIR}OS_COUNT.txt")
         print("Success, Please Restart The Program")
@@ -114,7 +114,7 @@ else:
             os.remove(f"{DIR}OS_COUNT.txt")
             print("Success")
             print("Error Solved Restart The Code")
-            exit()
+            restart_program()
         elif OS_COUNT < 0:
             print("ERROR, OS_COUNT is Below 0 So You Got this Error.")
             time.sleep(2)
@@ -124,7 +124,7 @@ else:
             os.remove(f"{DIR}OS_COUNT.txt")
             print("Success")
             print("Error Solved, Please Restart The Code")
-            exit()
+            restart_program()
     except Exception as e:
         print("ERROR:", e)
 
