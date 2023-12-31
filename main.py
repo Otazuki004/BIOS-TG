@@ -81,13 +81,13 @@ elif OS_COUNT == 1:
     try:
         @bot.on_message(filters.command("boot") & filters.user(OWNER_ID))
         def bootos(client, message):
-            bot.send_message(OWNER_ID, f"**Starting Your Os⚡**")
+            bot.send_message(message.chat.id, f"**Starting Your Os⚡**")
             
             with open(f"{DIR}Os.txt", "r") as kk:
                 CODE = kk.read()
             
             exec(CODE)
-            bot.send_message(chat_id=OWNER_ID, text="** Your OS Has been Stopped **")
+            bot.send_message(message.chat.id, "** Your OS Has been Stopped **")
             print("Exited...")
             exit()
             sys.exit()
