@@ -8,30 +8,25 @@ import subprocess
 
 try:
     DIR = f"{os.getcwd()}/"
-    print("Running On ", DIR)
+    print("Running Directory Is", DIR)
 except Exception as l:
     print("ERROR", l)
 
-version = 0.51
+version = 0.53
 a_id = "10187126" #Api ID
 a_hash = "ff197c0d23d7fe54c89b44ed092c1752"
-#Token For Boot Loader ↓
 BOT_TOKEN = "6545010659:AAFNji-VogCaD64CmwtCPOSiX3glPKQ3iH4"
 OWNER_ID = [5965055071, 2043144248]
-TOKEN = "6910428877:AAFIFbleAgAtf42tNQuty-gRbl4ybWIIPCQ"
 
-bot = Client("Bios", bot_token=BOT_TOKEN, api_id=a_id, api_hash=a_hash)
+bot = Client("System", bot_token=BOT_TOKEN, api_id=a_id, api_hash=a_hash)
 
 try:
     try:
         with open(f"{DIR}OS_COUNT.txt", "r") as f:
             OS_COUNT = int(f.read())
     except ValueError as e:
-        print("Got A ValueError Trying To solve it")
-        print("")
         time.sleep(5)
         os.remove(f"{DIR}OS_COUNT.txt")
-        print("Success✅, Please Restart The Boot Loader")
         exit()
 except Exception as y:
     with open(f"{DIR}OS_COUNT.txt", "w") as f:
@@ -46,7 +41,7 @@ def restart_program():
     os.execl(python, python, script, *sys.argv[1:])
 
 if OS_COUNT == 0:
-    print("No Os Detected, Boot a Os")
+    print("Operating system No Detected, Install Manually")
     try:
         @bot.on_message(filters.command("boot") & filters.user(OWNER_ID))
         async def boot(bot, message):
@@ -92,10 +87,8 @@ elif OS_COUNT == 1:
             exit()
             sys.exit()
     except FileNotFoundError: #ErrorHandling
-        print("Error, Os.txt Not Found Trying to Solve It")
         os.remove(f"{DIR}OS_COUNT.txt")
-        print("Success, Please Restart The Program")
-        exit()
+        restart_program()
     except Exception as e:
         print("ERROR, ", e)
         exit()
@@ -106,24 +99,21 @@ else:
     time.sleep(3)
     try:
         if OS_COUNT > 1:
-            print("ERROR, OS_COUNT is Above 1 So You Got this Error.")
+            print("error found, solving error..")
             time.sleep(2)
             print(" ")
-            print("Solving Error, This May take Few Moments")
-            time.sleep(3)
+            print(" ")
+            time.sleep(1.5)
             os.remove(f"{DIR}OS_COUNT.txt")
             print("Success")
-            print("Error Solved Restart The Code")
             restart_program()
         elif OS_COUNT < 0:
-            print("ERROR, OS_COUNT is Below 0 So You Got this Error.")
+            print("error found, solving error..")
             time.sleep(2)
             print(" ")
-            print("Solving Error, This May take Few Moments")
-            time.sleep(3)
+            time.sleep(1.5)
             os.remove(f"{DIR}OS_COUNT.txt")
             print("Success")
-            print("Error Solved, Please Restart The Code")
             restart_program()
     except Exception as e:
         print("ERROR:", e)
@@ -150,18 +140,17 @@ if OS_COUNT == 1:
             print("Somthing Went Wrong While Unbooting OS")
             print(e)
             exit()
-else:
-    None
+
 @bot.on_message(filters.command("help") & filters.user(OWNER_ID))
 def help (bot, message):
     bot.send_message(message.chat.id, """
 **📚 Help 📚
 
-Use `/version` To Get Bios Version
-Use `/shutdown` For Force Shutdown
-Use `/restart` For Force Restart
-Use `/boot` Boot a Os
-Use `/unboot` Delete A Booted Os file**
+Use /version To Get Bios Version
+Use /shutdown For Force Shutdown
+Use /restart For Force Restart
+Use /boot Boot a Os
+Use /unboot Delete A Booted Os file**
     """)
                      
 @bot.on_message(filters.command("version") & filters.user(OWNER_ID))
