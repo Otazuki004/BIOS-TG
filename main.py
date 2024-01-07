@@ -41,7 +41,7 @@ def restart_program():
     os.execl(python, python, script, *sys.argv[1:])
 
 if OS_COUNT == 0:
-    print("Operating system No Detected, Install Manually")
+    print("Operating systems Not Detected, Install Manually")
     try:
         @bot.on_message(filters.command("boot") & filters.user(OWNER_ID))
         async def boot(bot, message):
