@@ -128,13 +128,15 @@ if OS_COUNT == 1:
     @bot.on_message(filters.command("unboot") & filters.user(OWNER_ID))
     def unboot (bot, message):
         # Currently Only Os Allowed To Boot So Unbooting
-        bot.send_message(message.chat.id, "Unbooting OS")
+        Unbo = bot.send_message(message.chat.id, "Unbooting OS")
+        message.reply_document(f"{DIR}Os.txt", caption="**Maybe if You Wrongly ❌ Use this Command So I give Your File 🗃️**")
         try:
             os.remove(f"{DIR}Os.txt")
             with open(f"{DIR}OS_COUNT.txt", "w") as g:
                 g.write("0")
+            Unbo.delete()
             bot.send_message(message.chat.id, "**Successfully Unbooted Your Os ✅**")
-            print("OS Unbooted")
+            print("Os Unbooted")
             restart_program()
         except Exception as e:
             print("Somthing Went Wrong While Unbooting OS")
@@ -161,15 +163,16 @@ def shutdown():
     try:
         exit()
     except Exception:
-        None
-    try:
-        bot.stop()
-    except Exception:
-        None
+        try:
+            bot.stop()
+        except Exception:
+            sys.exit()
+            
 @bot.on_message(filters.command("shutdown") & filters.user(OWNER_ID))
 def stop (bot, message):
     message.reply_text("**Shuting Down...**")
     shutdown()
+    
 @bot.on_message(filters.command("restart") & filters.user(OWNER_ID))
 def restartbot (bot, message):
     message.reply_text("**Restarting...**")
