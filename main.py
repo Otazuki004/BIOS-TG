@@ -5,6 +5,7 @@ from pyrogram import Client, filters
 from pyrogram import *
 import time
 import subprocess
+import io
 
 try:
     DIR = f"{os.getcwd()}/"
@@ -136,19 +137,19 @@ if OS_COUNT == 1:
             print(e)
             exit()
 
-@system.on_message(filters.command("help") & filters.user(OWNER_ID))
+@system.on_message(filters.command("bhelp") & filters.user(OWNER_ID))
 def help (system, message):
     system.send_message(message.chat.id, """
 **📚 Help 📚
 
-Use /version To Get Bios Version
+Use /bios To Get Bios Version
 Use /shutdown For Force Shutdown
 Use /restart For Force Restart
 Use /boot Boot a Os
 Use /unboot Delete A Booted Os file**
     """)
                      
-@system.on_message(filters.command("version") & filters.user(OWNER_ID))
+@system.on_message(filters.command("bios") & filters.user(OWNER_ID))
 def biosversion (system, message):
     message.reply_text(f"**Your Current Bios Version is {version}**")
 
