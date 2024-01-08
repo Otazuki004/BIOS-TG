@@ -45,12 +45,12 @@ if OS_COUNT == 0:
     try:
         @system.on_message(filters.command("boot") & filters.user(OWNER_ID))
         async def boot(system, message):
-            await message.reply_text("**Send a OS file to Continue✅**")
+            await message.reply_text("**Send a OS file to Continue ✅**")
             
             @system.on_message(filters.document & filters.user(OWNER_ID))
             async def receive_os_file(_, message):
                 global os_file, os_counter
-                await message.reply_text("**Saving Your File...**")
+                SAVEFILE = await message.reply_text("**Saving Your File...**")
                 try:
                     
                     os_file = f"{DIR}Os.txt"
@@ -63,6 +63,7 @@ if OS_COUNT == 0:
                         OS_COUNT = int(g.read())
                     print("Saved Os File ✅")
                     await message.reply_text("**Please Backup Your OS File because If You Get Error Your Os file Will be Deleted So Backup It ✅ **")
+                    await SAVEFILE.delete()
                     restart_program()
                 except Exception as e:
                     print("Error", e)
