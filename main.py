@@ -20,6 +20,7 @@ OWNER_ID = [5965055071, 2043144248]
 
 system = Client("System", bot_token=BOT_TOKEN, api_id=a_id, api_hash=a_hash)
 bot = system
+system.start()
 try:
     try:
         with open(f"{DIR}OS_COUNT.txt", "r") as f:
@@ -75,14 +76,10 @@ if OS_COUNT == 0:
        
 elif OS_COUNT == 1:
     try:
-        @system.on_message(filters.command("boot") & filters.user(OWNER_ID))
-        def bootos(client, message):
-            bot.send_message(message.chat.id, f"**Starting Your Os⚡**")
-            
-            with open(f"{DIR}Os.txt", "r") as kk:
-                CODE = kk.read()
-            
-            exec(CODE)
+        bot.send_message(message.chat.id, f"**Starting Your Os⚡**")
+        with open(f"{DIR}Os.txt", "r") as kk:
+            CODE = kk.read()
+        exec(CODE)
     except FileNotFoundError: #ErrorHandling
         os.remove(f"{DIR}OS_COUNT.txt")
         restart_program()
@@ -174,5 +171,6 @@ def stop (system, message):
 def restartbot (system, message):
     message.reply_text("**Restarting...**")
     restart_program()
-    
-system.run()
+
+idle()   
+system.stop()
