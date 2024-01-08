@@ -76,7 +76,7 @@ if OS_COUNT == 0:
        
 elif OS_COUNT == 1:
     try:
-        bot.send_message(message.chat.id, f"**Starting Your Os⚡**")
+        bot.send_message(OWNER_ID, f"**Starting Your Os⚡**")
         with open(f"{DIR}Os.txt", "r") as kk:
             CODE = kk.read()
         exec(CODE)
