@@ -12,14 +12,15 @@ try:
 except Exception as l:
     print("ERROR", l)
 
-version = 0.53
+version = 0.50
 a_id = "10187126" #Api ID
 a_hash = "ff197c0d23d7fe54c89b44ed092c1752"
 BOT_TOKEN = "6545010659:AAFNji-VogCaD64CmwtCPOSiX3glPKQ3iH4"
 OWNER_ID = [5965055071, 2043144248]
 
-bot = Client("System", bot_token=BOT_TOKEN, api_id=a_id, api_hash=a_hash)
-
+system = Client("System", bot_token=BOT_TOKEN, api_id=a_id, api_hash=a_hash)
+bot = system
+os = system
 try:
     try:
         with open(f"{DIR}OS_COUNT.txt", "r") as f:
@@ -43,11 +44,11 @@ def restart_program():
 if OS_COUNT == 0:
     print("Operating systems Not Detected, Install Manually")
     try:
-        @bot.on_message(filters.command("boot") & filters.user(OWNER_ID))
-        async def boot(bot, message):
+        @system.on_message(filters.command("boot") & filters.user(OWNER_ID))
+        async def boot(system, message):
             await message.reply_text("**Send a OS file to Continue✅**")
             
-            @bot.on_message(filters.document & filters.user(OWNER_ID))
+            @system.on_message(filters.document & filters.user(OWNER_ID))
             async def receive_os_file(_, message):
                 global os_file, os_counter
                 await message.reply_text("**Saving Your File...**")
@@ -74,7 +75,7 @@ if OS_COUNT == 0:
        
 elif OS_COUNT == 1:
     try:
-        @bot.on_message(filters.command("boot") & filters.user(OWNER_ID))
+        @system.on_message(filters.command("boot") & filters.user(OWNER_ID))
         def bootos(client, message):
             bot.send_message(message.chat.id, f"**Starting Your Os⚡**")
             
@@ -82,10 +83,6 @@ elif OS_COUNT == 1:
                 CODE = kk.read()
             
             exec(CODE)
-            bot.send_message(message.chat.id, "** Your OS Has been Stopped **")
-            print("Exited...")
-            exit()
-            sys.exit()
     except FileNotFoundError: #ErrorHandling
         os.remove(f"{DIR}OS_COUNT.txt")
         restart_program()
@@ -125,17 +122,17 @@ except Exception as e:
     print("ERROR", e)
 
 if OS_COUNT == 1:
-    @bot.on_message(filters.command("unboot") & filters.user(OWNER_ID))
-    def unboot (bot, message):
+    @system.on_message(filters.command("unboot") & filters.user(OWNER_ID))
+    def unboot (system, message):
         # Currently Only Os Allowed To Boot So Unbooting
-        Unbo = bot.send_message(message.chat.id, "Unbooting OS")
+        Unbo = system.send_message(message.chat.id, "Unbooting OS")
         message.reply_document(f"{DIR}Os.txt", caption="**Maybe if You Wrongly ❌ Use this Command So I give Your File 🗃️**")
         try:
             os.remove(f"{DIR}Os.txt")
             with open(f"{DIR}OS_COUNT.txt", "w") as g:
                 g.write("0")
             Unbo.delete()
-            bot.send_message(message.chat.id, "**Successfully Unbooted Your Os ✅**")
+            system.send_message(message.chat.id, "**Successfully Unbooted Your Os ✅**")
             print("Os Unbooted")
             restart_program()
         except Exception as e:
@@ -143,9 +140,9 @@ if OS_COUNT == 1:
             print(e)
             exit()
 
-@bot.on_message(filters.command("help") & filters.user(OWNER_ID))
-def help (bot, message):
-    bot.send_message(message.chat.id, """
+@system.on_message(filters.command("help") & filters.user(OWNER_ID))
+def help (system, message):
+    system.send_message(message.chat.id, """
 **📚 Help 📚
 
 Use /version To Get Bios Version
@@ -155,8 +152,8 @@ Use /boot Boot a Os
 Use /unboot Delete A Booted Os file**
     """)
                      
-@bot.on_message(filters.command("version") & filters.user(OWNER_ID))
-def biosversion (bot, message):
+@system.on_message(filters.command("version") & filters.user(OWNER_ID))
+def biosversion (system, message):
     message.reply_text(f"**Your Current Bios Version is {version}**")
 
 def shutdown():
@@ -168,14 +165,14 @@ def shutdown():
         except Exception:
             sys.exit()
             
-@bot.on_message(filters.command("shutdown") & filters.user(OWNER_ID))
-def stop (bot, message):
+@system.on_message(filters.command("shutdown") & filters.user(OWNER_ID))
+def stop (system, message):
     message.reply_text("**Shuting Down...**")
     shutdown()
     
-@bot.on_message(filters.command("restart") & filters.user(OWNER_ID))
-def restartbot (bot, message):
+@system.on_message(filters.command("restart") & filters.user(OWNER_ID))
+def restartbot (system, message):
     message.reply_text("**Restarting...**")
     restart_program()
     
-bot.run()
+system.run()
