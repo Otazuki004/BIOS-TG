@@ -16,7 +16,7 @@ except Exception as l:
 version = 0.51
 a_id = "10187126" #Api ID
 a_hash = "ff197c0d23d7fe54c89b44ed092c1752"
-BOT_TOKEN = "6545010659:AAFNji-VogCaD64CmwtCPOSiX3glPKQ3iH4"
+BOT_TOKEN = "6957348263:AAEl01xjddkWgviPtKnyRrEtUqugnQiMHkg"
 OWNER_ID = [5965055071, 2043144248]
 
 system = Client("System", bot_token=BOT_TOKEN, api_id=a_id, api_hash=a_hash)
