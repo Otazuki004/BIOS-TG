@@ -19,8 +19,6 @@ BOT_TOKEN = "6545010659:AAFNji-VogCaD64CmwtCPOSiX3glPKQ3iH4"
 OWNER_ID = [5965055071, 2043144248]
 
 system = Client("System", bot_token=BOT_TOKEN, api_id=a_id, api_hash=a_hash)
-bot = system
-os = system
 try:
     try:
         with open(f"{DIR}OS_COUNT.txt", "r") as f:
