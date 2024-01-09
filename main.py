@@ -3,6 +3,7 @@ import os
 import asyncio
 from pyrogram import Client, filters
 import time
+from pyrogram import idle
 
 try:
     DIR = f"{os.getcwd()}/"
