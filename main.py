@@ -86,7 +86,50 @@ elif OS_COUNT == 1:
     except Exception as e:
         print("ERROR, ", e)
         exit()
-    
+elif OS_COUNT == 2:
+    try:
+        with open(f"{DIR}Os2.txt", "r") as kk:
+            CODE = kk.read()
+        exec(CODE)
+    except FileNotFoundError: #ErrorHandling
+        os.remove(f"{DIR}OS_COUNT.txt")
+        restart_program()
+    except Exception as e:
+        print("ERROR, ", e)
+        exit()
+elif OS_COUNT == 3:
+    try:
+        with open(f"{DIR}Os3.txt", "r") as kk:
+            CODE = kk.read()
+        exec(CODE)
+    except FileNotFoundError: #ErrorHandling
+        os.remove(f"{DIR}OS_COUNT.txt")
+        restart_program()
+    except Exception as e:
+        print("ERROR, ", e)
+        exit()
+elif OS_COUNT == 4:
+    try:
+        with open(f"{DIR}Os4.txt", "r") as kk:
+            CODE = kk.read()
+        exec(CODE)
+    except FileNotFoundError: #ErrorHandling
+        os.remove(f"{DIR}OS_COUNT.txt")
+        restart_program()
+    except Exception as e:
+        print("ERROR, ", e)
+        exit()
+elif OS_COUNT == 5:
+    try:
+        with open(f"{DIR}Os5.txt", "r") as kk:
+            CODE = kk.read()
+        exec(CODE)
+    except FileNotFoundError: #ErrorHandling
+        os.remove(f"{DIR}OS_COUNT.txt")
+        restart_program()
+    except Exception as e:
+        print("ERROR, ", e)
+        exit()
 
 else:
     print("Something Went Wrong, Checking Errors....")
@@ -118,7 +161,7 @@ try:
 except Exception as e:
     print("ERROR", e)
 
-if OS_COUNT == 1:
+if OS_COUNT > 0:
     @system.on_message(filters.command("unboot") & filters.user(OWNER_ID))
     def unboot (system, message):
         # Currently Only Os Allowed To Boot So Unbooting
@@ -136,7 +179,7 @@ if OS_COUNT == 1:
             print("Somthing Went Wrong While Unbooting OS")
             print(e)
             exit()
-
+            
 @system.on_message(filters.command("bhelp") & filters.user(OWNER_ID))
 def help (system, message):
     system.send_message(message.chat.id, """
