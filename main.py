@@ -74,8 +74,8 @@ if OS_COUNT == 0:
         print("OOPS Something went Wrong During First Boot")
         print(e)
         exit()
-       
-elif OS_COUNT > 0:
+tr = True       
+elif tr == True:
     try:
         if OS_COUNT == 1:
                 try:
