@@ -5,6 +5,8 @@ from pyrogram import Client, filters
 import time
 from pyrogram import idle
 
+OS_COUNT = 0
+
 try:
     DIR = f"{os.getcwd()}/"
     print("Running Directory Is", DIR)
@@ -146,6 +148,7 @@ if tr == "h":
                 try:
                     @system.on_message(filters.command("boot") & filters.user(OWNER_ID))
                     async def boot(system, message):
+                        global OS_COUNT
                         await message.reply_text("**You Have Already 1 Os Then You need Another Os?**")
                         await asyncio.sleep(1)
                         await message.reply_text("**Send a OS file to Continue ✅**")
@@ -179,6 +182,7 @@ if tr == "h":
                 try:
                     @system.on_message(filters.command("boot") & filters.user(OWNER_ID))
                     async def boot(system, message):
+                        global OS_COUNT
                         await message.reply_text("**You Have Already 1 Os Then You need Another Os?**")
                         await asyncio.sleep(1)
                         await message.reply_text("**Send a OS file to Continue ✅**")
