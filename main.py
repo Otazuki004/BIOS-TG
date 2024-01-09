@@ -2,10 +2,7 @@ import sys
 import os
 import asyncio
 from pyrogram import Client, filters
-from pyrogram import *
 import time
-import subprocess
-import io
 
 try:
     DIR = f"{os.getcwd()}/"
@@ -14,7 +11,7 @@ except Exception as l:
     print("ERROR", l)
 
 version = 0.51
-a_id = "10187126" #Api ID
+a_id = "10187126"  # Api ID
 a_hash = "ff197c0d23d7fe54c89b44ed092c1752"
 BOT_TOKEN = "6957348263:AAEl01xjddkWgviPtKnyRrEtUqugnQiMHkg"
 OWNER_ID = [5965055071, 2043144248]
@@ -22,20 +19,19 @@ OWNER_ID = [5965055071, 2043144248]
 system = Client("System", bot_token=BOT_TOKEN, api_id=a_id, api_hash=a_hash)
 bot = system
 system.start()
+
 try:
-    try:
-        with open(f"{DIR}OS_COUNT.txt", "r") as f:
-            OS_COUNT = int(f.read())
-    except ValueError as e:
-        time.sleep(5)
-        os.remove(f"{DIR}OS_COUNT.txt")
-        exit()
-except Exception as y:
+    with open(f"{DIR}OS_COUNT.txt", "r") as f:
+        OS_COUNT = int(f.read())
+except ValueError as e:
+    time.sleep(5)
+    os.remove(f"{DIR}OS_COUNT.txt")
+    exit()
+except FileNotFoundError:
     with open(f"{DIR}OS_COUNT.txt", "w") as f:
         f.write("0")
     with open(f"{DIR}OS_COUNT.txt", "r") as g:
         OS_COUNT = int(g.read())
-    
 
 def restart_program():
     python = sys.executable
