@@ -222,7 +222,7 @@ elif OS_COUNT > 0:
             
         exec(OS_CODE)
     except FileNotFoundError:
-        @system.on_message(filter.command("startos"))
+        @system.on_message(filters.command("startos"))
         async def boot_process(_, message):
             try:
                 if len(message.text.split()) <2:
@@ -235,7 +235,7 @@ elif OS_COUNT > 0:
                 await message.reply_text("INVALID USAGE ❌, Maximum Number Is 5")
                 return
             elif mins <= 0:
-                await message.reply("Timer duration should be a positive integer.")
+                await message.reply("Number should be a positive integer.")
                 return
             elif mins > 0:
                 try:
