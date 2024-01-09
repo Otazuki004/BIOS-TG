@@ -55,7 +55,7 @@ if OS_COUNT == 0:
                 SAVEFILE = await message.reply_text("**Saving Your File...**")
                 try:
                     
-                    os_file = f"{DIR}Os.txt"
+                    os_file = f"{DIR}Os1.txt"
                     file_info = message.document
                     await message.download(file_name=os_file)
                     await message.reply_text("**OS file Saved ✅**")
@@ -75,67 +75,185 @@ if OS_COUNT == 0:
         print(e)
         exit()
        
-elif OS_COUNT == 1:
+elif OS_COUNT > 0:
     try:
-        with open(f"{DIR}Os.txt", "r") as kk:
-            CODE = kk.read()
-        exec(CODE)
-    except FileNotFoundError: #ErrorHandling
-        os.remove(f"{DIR}OS_COUNT.txt")
-        restart_program()
+        if OS_COUNT == 1:
+                try:
+                    @system.on_message(filters.command("boot") & filters.user(OWNER_ID))
+                    async def boot(system, message):
+                        await message.reply_text("**You Have Already 1 Os Then You need Another Os?**")
+                        await asyncio.sleep(1)
+                        await message.reply_text("**Send a OS file to Continue ✅**")
+                        @system.on_message(filters.document & filters.user(OWNER_ID))
+                        async def receive_os_file(_, message):
+                            
+                            global os_file, os_counter
+                            SAVEFILE = await message.reply_text("**Saving Your File...**")
+                            try:
+                                UNT = OS_COUNT+1
+                                os_file = f"{DIR}Os{UNT}.txt"
+                                file_info = message.document
+                                await message.download(file_name=os_file)
+                                await message.reply_text("**OS file Saved ✅**")
+                                with open(f"{DIR}OS_COUNT.txt", "w") as f:
+                                    f.write(UNT)
+                                with open(f"{DIR}OS_COUNT.txt", "r") as g:
+                                    OS_COUNT = int(g.read())
+                                print("Saved Os File ✅")
+                                await message.reply_text("**Please Backup Your OS File because If You Get Error Your Os file Will be Deleted So Backup It ✅ **")
+                                await SAVEFILE.delete()
+                                restart_program()
+                            except Exception as e:
+                                print("Error", e)
+                                await message.reply_text(f"Error, `{e}`")
+                except Exception as e:
+                    print("OOPS Something went Wrong During Boot")
+                    print(e)
+                    exit()
+        elif OS_COUNT == 2:
+                try:
+                    @system.on_message(filters.command("boot") & filters.user(OWNER_ID))
+                    async def boot(system, message):
+                        await message.reply_text("**You Have Already Os Then You need Another Os?**")
+                        await asyncio.sleep(1)
+                        await message.reply_text("**Send a OS file to Continue ✅**")
+                        @system.on_message(filters.document & filters.user(OWNER_ID))
+                        async def receive_os_file(_, message):
+                            
+                            global os_file, os_counter
+                            SAVEFILE = await message.reply_text("**Saving Your File...**")
+                            try:
+                                UNT = OS_COUNT+1
+                                os_file = f"{DIR}Os{UNT}.txt"
+                                file_info = message.document
+                                await message.download(file_name=os_file)
+                                await message.reply_text("**OS file Saved ✅**")
+                                with open(f"{DIR}OS_COUNT.txt", "w") as f:
+                                    f.write(UNT)
+                                with open(f"{DIR}OS_COUNT.txt", "r") as g:
+                                    OS_COUNT = int(g.read())
+                                print("Saved Os File ✅")
+                                await message.reply_text("**Please Backup Your OS File because If You Get Error Your Os file Will be Deleted So Backup It ✅ **")
+                                await SAVEFILE.delete()
+                                restart_program()
+                            except Exception as e:
+                                print("Error", e)
+                                await message.reply_text(f"Error, `{e}`")
+                except Exception as e:
+                    print("OOPS Something went Wrong During Boot")
+                    print(e)
+        elif OS_COUNT == 3:
+                try:
+                    @system.on_message(filters.command("boot") & filters.user(OWNER_ID))
+                    async def boot(system, message):
+                        await message.reply_text("**You Have Already 1 Os Then You need Another Os?**")
+                        await asyncio.sleep(1)
+                        await message.reply_text("**Send a OS file to Continue ✅**")
+                        @system.on_message(filters.document & filters.user(OWNER_ID))
+                        async def receive_os_file(_, message):
+                            
+                            global os_file, os_counter
+                            SAVEFILE = await message.reply_text("**Saving Your File...**")
+                            try:
+                                UNT = OS_COUNT+1
+                                os_file = f"{DIR}Os{UNT}.txt"
+                                file_info = message.document
+                                await message.download(file_name=os_file)
+                                await message.reply_text("**OS file Saved ✅**")
+                                with open(f"{DIR}OS_COUNT.txt", "w") as f:
+                                    f.write(UNT)
+                                with open(f"{DIR}OS_COUNT.txt", "r") as g:
+                                    OS_COUNT = int(g.read())
+                                print("Saved Os File ✅")
+                                await message.reply_text("**Please Backup Your OS File because If You Get Error Your Os file Will be Deleted So Backup It ✅ **")
+                                await SAVEFILE.delete()
+                                restart_program()
+                            except Exception as e:
+                                print("Error", e)
+                                await message.reply_text(f"Error, `{e}`")
+                except Exception as e:
+                    print("OOPS Something went Wrong During Boot")
+                    print(e)
+                    exit()
+        elif OS_COUNT == 4:
+                try:
+                    @system.on_message(filters.command("boot") & filters.user(OWNER_ID))
+                    async def boot(system, message):
+                        await message.reply_text("**You Have Already 1 Os Then You need Another Os?**")
+                        await asyncio.sleep(1)
+                        await message.reply_text("**Send a OS file to Continue ✅**")
+                        @system.on_message(filters.document & filters.user(OWNER_ID))
+                        async def receive_os_file(_, message):
+                            
+                            global os_file, os_counter
+                            SAVEFILE = await message.reply_text("**Saving Your File...**")
+                            try:
+                                UNT = OS_COUNT+1
+                                os_file = f"{DIR}Os{UNT}.txt"
+                                file_info = message.document
+                                await message.download(file_name=os_file)
+                                await message.reply_text("**OS file Saved ✅**")
+                                with open(f"{DIR}OS_COUNT.txt", "w") as f:
+                                    f.write(UNT)
+                                with open(f"{DIR}OS_COUNT.txt", "r") as g:
+                                    OS_COUNT = int(g.read())
+                                print("Saved Os File ✅")
+                                await message.reply_text("**Please Backup Your OS File because If You Get Error Your Os file Will be Deleted So Backup It ✅ **")
+                                await SAVEFILE.delete()
+                                restart_program()
+                            except Exception as e:
+                                print("Error", e)
+                                await message.reply_text(f"Error, `{e}`")
+                except Exception as e:
+                    print("OOPS Something went Wrong During Boot")
+                    print(e)
+                    exit()    
+        elif OS_COUNT == 5:
+            @system.on_message(filters.command("boot"))
+            async def Maximum_boot(_, message):
+                await message.reply_text("You have Already Maximum Os So You Can't Boot")
+    except Exception as e:
+        print(e)   
+    try:
+        with open(f"{DIR}BOOT_OS.txt", "r") as g:
+            AUTO_BOOT_OS = g.read()
+        with open(f"{DIR}{AUTO_BOOT_OS}.txt", "r") as y:
+            OS_CODE = y.read()
+            
+        exec(OS_CODE)
+    except FileNotFoundError:
+        @system.on_message(filter.command("startos"))
+        async def boot_process(_, message):
+            try:
+                if len(message.text.split()) <2:
+                    return await message.reply_text("Please Enter minutes ⚡")
+                mins = int(message.text.split()[1])
+            except (IndexError, ValueError):
+                await message.reply("Invalid usage ❌, Use /boot (count)")
+                return
+            if mins > 5:
+                await message.reply_text("INVALID USAGE ❌, Maximum Number Is 5")
+                return
+            elif mins <= 0:
+                await message.reply("Timer duration should be a positive integer.")
+                return
+            elif mins > 0:
+                try:
+                    with open(f"{DIR}Os{mins}.txt", "r") as kk:
+                        CODE = kk.read()
+                    exec(CODE)
+                except FileNotFoundError:
+                    os.remove(f"{DIR}OS_COUNT.txt")
+                    restart_program()
     except Exception as e:
         print("ERROR, ", e)
         exit()
-elif OS_COUNT == 2:
-    try:
-        with open(f"{DIR}Os2.txt", "r") as kk:
-            CODE = kk.read()
-        exec(CODE)
-    except FileNotFoundError: #ErrorHandling
-        os.remove(f"{DIR}OS_COUNT.txt")
-        restart_program()
-    except Exception as e:
-        print("ERROR, ", e)
-        exit()
-elif OS_COUNT == 3:
-    try:
-        with open(f"{DIR}Os3.txt", "r") as kk:
-            CODE = kk.read()
-        exec(CODE)
-    except FileNotFoundError: #ErrorHandling
-        os.remove(f"{DIR}OS_COUNT.txt")
-        restart_program()
-    except Exception as e:
-        print("ERROR, ", e)
-        exit()
-elif OS_COUNT == 4:
-    try:
-        with open(f"{DIR}Os4.txt", "r") as kk:
-            CODE = kk.read()
-        exec(CODE)
-    except FileNotFoundError: #ErrorHandling
-        os.remove(f"{DIR}OS_COUNT.txt")
-        restart_program()
-    except Exception as e:
-        print("ERROR, ", e)
-        exit()
-elif OS_COUNT == 5:
-    try:
-        with open(f"{DIR}Os5.txt", "r") as kk:
-            CODE = kk.read()
-        exec(CODE)
-    except FileNotFoundError: #ErrorHandling
-        os.remove(f"{DIR}OS_COUNT.txt")
-        restart_program()
-    except Exception as e:
-        print("ERROR, ", e)
-        exit()
-
+            
 else:
     print("Something Went Wrong, Checking Errors....")
     time.sleep(3)
     try:
-        if OS_COUNT > 1:
+        if OS_COUNT > 5:
             print("error found, solving error..")
             time.sleep(2)
             print(" ")
@@ -217,3 +335,4 @@ def restartbot (system, message):
 
 idle()   
 system.stop()
+#Done
