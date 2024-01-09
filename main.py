@@ -76,7 +76,7 @@ if OS_COUNT == 0:
         exit()
 tr = "h"
 
-elif tr == "h":
+if tr == "h":
     try:
         if OS_COUNT == 1:
                 try:
