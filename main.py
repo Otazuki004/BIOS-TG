@@ -22,7 +22,6 @@ OWNER_ID = [5965055071, 2043144248]
 
 system = Client("System", bot_token=BOT_TOKEN, api_id=a_id, api_hash=a_hash)
 bot = system
-system.start()
 
 try:
     with open(f"{DIR}OS_COUNT.txt", "r") as f:
@@ -37,14 +36,11 @@ except FileNotFoundError:
     with open(f"{DIR}OS_COUNT.txt", "r") as g:
         OS_COUNT = int(g.read())
 
-def load_os_count():
-    global OS_COUNT
     
 def restart_program():
     python = sys.executable
     script = os.path.abspath(sys.argv[0])
     os.execl(python, python, script, *sys.argv[1:])
-load_os_count()
 
 if OS_COUNT == 0:
     print("Operating systems Not Detected, Install Manually")
@@ -341,7 +337,6 @@ def stop (system, message):
 def restartbot (system, message):
     message.reply_text("**Restarting...**")
     restart_program()
-
-idle()   
-system.stop()
+    
+system.run()
 #Done
