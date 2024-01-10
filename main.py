@@ -82,7 +82,6 @@ elif OS_COUNT >= 1:
                 try:
                     @system.on_message(filters.command("boot") & filters.user(OWNER_ID))
                     async def boot(system, message):
-                        global OS_COUNT
                         await message.reply_text("**You Have Already 1 Os Then You need Another Os?**")
                         await asyncio.sleep(1)
                         await message.reply_text("**Send a OS file to Continue ✅**")
@@ -92,7 +91,7 @@ elif OS_COUNT >= 1:
                             global os_file, os_counter
                             SAVEFILE = await message.reply_text("**Saving Your File...**")
                             try:
-                                UNT = OS_COUNT+1
+                                UNT = 2
                                 os_file = f"{DIR}Os{UNT}.txt"
                                 file_info = message.document
                                 await message.download(file_name=os_file)
@@ -116,7 +115,6 @@ elif OS_COUNT >= 1:
                 try:
                     @system.on_message(filters.command("boot") & filters.user(OWNER_ID))
                     async def boot(system, message):
-                        global OS_COUNT
                         await message.reply_text("**You Have Already Os Then You need Another Os?**")
                         await asyncio.sleep(1)
                         await message.reply_text("**Send a OS file to Continue ✅**")
@@ -126,7 +124,7 @@ elif OS_COUNT >= 1:
                             global os_file, os_counter
                             SAVEFILE = await message.reply_text("**Saving Your File...**")
                             try:
-                                UNT = OS_COUNT+1
+                                UNT = 3
                                 os_file = f"{DIR}Os{UNT}.txt"
                                 file_info = message.document
                                 await message.download(file_name=os_file)
@@ -149,7 +147,6 @@ elif OS_COUNT >= 1:
                 try:
                     @system.on_message(filters.command("boot") & filters.user(OWNER_ID))
                     async def boot(system, message):
-                        global OS_COUNT
                         await message.reply_text("**You Have Already 1 Os Then You need Another Os?**")
                         await asyncio.sleep(1)
                         await message.reply_text("**Send a OS file to Continue ✅**")
@@ -159,7 +156,7 @@ elif OS_COUNT >= 1:
                             global os_file, os_counter
                             SAVEFILE = await message.reply_text("**Saving Your File...**")
                             try:
-                                UNT = OS_COUNT+1
+                                UNT = 4
                                 os_file = f"{DIR}Os{UNT}.txt"
                                 file_info = message.document
                                 await message.download(file_name=os_file)
@@ -183,7 +180,6 @@ elif OS_COUNT >= 1:
                 try:
                     @system.on_message(filters.command("boot") & filters.user(OWNER_ID))
                     async def boot(system, message):
-                        global OS_COUNT
                         await message.reply_text("**You Have Already 1 Os Then You need Another Os?**")
                         await asyncio.sleep(1)
                         await message.reply_text("**Send a OS file to Continue ✅**")
@@ -193,7 +189,7 @@ elif OS_COUNT >= 1:
                             global os_file, os_counter
                             SAVEFILE = await message.reply_text("**Saving Your File...**")
                             try:
-                                UNT = OS_COUNT+1
+                                UNT = 5
                                 os_file = f"{DIR}Os{UNT}.txt"
                                 file_info = message.document
                                 await message.download(file_name=os_file)
@@ -219,6 +215,7 @@ elif OS_COUNT >= 1:
                 await message.reply_text("You have Already Maximum Os So You Can't Boot")
     except Exception as e:
         print(e)   
+    #Start The OS section
     try:
         with open(f"{DIR}BOOT_OS.txt", "r") as g:
             AUTO_BOOT_OS = g.read()
