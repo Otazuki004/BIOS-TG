@@ -75,8 +75,9 @@ if OS_COUNT == 0:
         print(e)
         exit()
 
-OS_COUNT = OS_COUNT
-elif OS_COUNT >= 1:
+No = False
+
+if No == False:
     try:
         if OS_COUNT == 1:
                 try:
