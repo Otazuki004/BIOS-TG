@@ -4,6 +4,7 @@ import asyncio
 from pyrogram import Client, filters
 import time
 from pyrogram import idle
+from subprocess import getoutput as run
 
 OS_COUNT = 0
 
@@ -92,7 +93,7 @@ if No == False:
                             global os_file, os_counter
                             SAVEFILE = await message.reply_text("**Saving Your File...**")
                             try:
-                                UNT = 2
+                                UNT = "2"
                                 os_file = f"{DIR}Os{UNT}.txt"
                                 file_info = message.document
                                 await message.download(file_name=os_file)
@@ -125,7 +126,7 @@ if No == False:
                             global os_file, os_counter
                             SAVEFILE = await message.reply_text("**Saving Your File...**")
                             try:
-                                UNT = 3
+                                UNT = "3"
                                 os_file = f"{DIR}Os{UNT}.txt"
                                 file_info = message.document
                                 await message.download(file_name=os_file)
@@ -157,7 +158,7 @@ if No == False:
                             global os_file, os_counter
                             SAVEFILE = await message.reply_text("**Saving Your File...**")
                             try:
-                                UNT = 4
+                                UNT = "4"
                                 os_file = f"{DIR}Os{UNT}.txt"
                                 file_info = message.document
                                 await message.download(file_name=os_file)
@@ -190,7 +191,7 @@ if No == False:
                             global os_file, os_counter
                             SAVEFILE = await message.reply_text("**Saving Your File...**")
                             try:
-                                UNT = 5
+                                UNT = "5"
                                 os_file = f"{DIR}Os{UNT}.txt"
                                 file_info = message.document
                                 await message.download(file_name=os_file)
