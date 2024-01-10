@@ -13,6 +13,7 @@ try:
 except Exception as l:
     print("ERROR", l)
 
+
 version = 0.51
 a_id = "10187126"  # Api ID
 a_hash = "ff197c0d23d7fe54c89b44ed092c1752"
@@ -36,10 +37,14 @@ except FileNotFoundError:
     with open(f"{DIR}OS_COUNT.txt", "r") as g:
         OS_COUNT = int(g.read())
 
+def load_os_count():
+    global OS_COUNT
+    
 def restart_program():
     python = sys.executable
     script = os.path.abspath(sys.argv[0])
     os.execl(python, python, script, *sys.argv[1:])
+load_os_count()
 
 if OS_COUNT == 0:
     print("Operating systems Not Detected, Install Manually")
