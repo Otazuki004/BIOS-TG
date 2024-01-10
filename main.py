@@ -35,7 +35,7 @@ except FileNotFoundError:
         f.write("0")
     with open(f"{DIR}OS_COUNT.txt", "r") as g:
         OS_COUNT = int(g.read())
-
+OS_COUNT = OS_COUNT
     
 def restart_program():
     python = sys.executable
@@ -75,7 +75,7 @@ if OS_COUNT == 0:
         print(e)
         exit()
 
-
+OS_COUNT = OS_COUNT
 elif OS_COUNT >= 1:
     try:
         if OS_COUNT == 1:
